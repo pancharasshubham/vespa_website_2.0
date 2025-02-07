@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("active");
   });
 
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("show");
+  }
+
+function closeMenu() {
+  document.getElementById("nav-menu").classList.remove("show");
+  }
+
+
   // Form submission handling
   const form = document.getElementById("bookingForm")
   form.addEventListener("submit", (e) => {

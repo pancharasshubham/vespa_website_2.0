@@ -11,14 +11,17 @@
     <header>
         <div class="container">
             <h1 class="logo">RS Motor's</h1>
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="https://wa.me/7028553371" target="_blank">Book Service</a></li>
-                    <li><a href="#models">Models</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                    <li><a href="https://wa.me/7028553371" target="_blank" onclick="closeMenu()">Book Service</a></li>
+                    <li><a href="#models" onclick="closeMenu()">Models</a></li>
+                    <li><a href="#contact" onclick="closeMenu()">Contact Us</a></li>
                 </ul>
-                <div class="menu-toggle">&#9776;</div>
+                <!-- <div class="menu-toggle">&#9776;</div> -->
             </nav>
         </div>
     </header>
@@ -208,6 +211,7 @@
                 </div>
                 <div class="footer-copyright">
                     <p>&copy; 2022 - 2025 RS Motor's. All rights reserved.</p>
+                    <p>Made with  by Shubham</p>
                 </div>
             </div>
             <div>
