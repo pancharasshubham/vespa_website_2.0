@@ -73,6 +73,14 @@ nav ul li a {
   margin-bottom: 1rem;
 }
 
+
+#btn{
+  margin-top: 1.3rem;
+  margin-left: 8rem;
+  width: 50%;
+}
+
+
 .hero-image {
   flex: 1;
 }
@@ -87,14 +95,23 @@ nav ul li a {
 /* Vehicle showcase styles */
 .vehicle-showcase {
   padding: 4rem 0;
+
   /* background-color: #EEF5DB; */
   background-color: #FAFAFA;
+
+  background-color: #FDFFFC;
+
 }
 
 .vehicle-showcase h2 {
   text-align: center;
   margin-bottom: 2rem;
 }
+
+.container h2{
+  color: #134B42;
+}
+
 
 .vehicle-list {
   display: flex;
@@ -129,7 +146,13 @@ nav ul li a {
 
 .vehicle-details h3 {
   font-size: 1.5rem;
+
   margin-bottom: 1rem;
+
+  margin-bottom: 1rem;  
+  margin-left: 0.5rem;
+  color: #E53935;
+
 }
 
 .vehicle-details table {
