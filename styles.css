@@ -37,18 +37,6 @@ header h1 {
   font-size: 1.5rem;
 }
 
-/* .nav-links {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background: #333;
-  width: 100%;
-  text-align: center;
-  padding: 15px 0;
-} */
-
 nav ul {
   display: flex;
   list-style: none;
@@ -67,7 +55,7 @@ nav ul li a {
 /* Hero section styles */
 .hero {
   background-color: #f4f4f4;
-  padding: 6rem 0 4rem;
+  padding: 5rem 0 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,7 +125,7 @@ nav ul li a {
 
 /* Vehicle showcase styles */
 .vehicle-showcase {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background-color: #FAFAFA;
 }
 
@@ -270,13 +258,13 @@ footer {
   align-items: flex-start;
 }
 
-.footer-info h3 {
+.footer-info>h3 {
   margin-bottom: 1rem;
 }
 
-.footer-info p {
+.footer-info>p {
   margin-bottom: 0.5rem;
-}
+} 
 
 /* Mobile menu */
 .menu-toggle {
@@ -287,6 +275,16 @@ footer {
 
 .nav-links.active{
   display: flex;
+}
+
+footer h5{
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Responsive styles */
@@ -379,7 +377,14 @@ footer {
 
   .footer-content {
     flex-direction: column;
-    text-align: center;
+    display: flex;
+    align-items:  center;
+  }
+
+  .footer-info h3, .footer-info p{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .footer-copyright {
