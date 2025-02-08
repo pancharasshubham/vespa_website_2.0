@@ -13,19 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile toggle menu
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
+  const navItems = document.querySelectorAll(".nav-links a");
 
   menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
   });
 
-function toggleMenu() {
-  document.getElementById("nav-menu").classList.toggle("show");
-  }
-
-function closeMenu() {
-  document.getElementById("nav-menu").classList.remove("show");
-  }
-
+// Close menu when clicking a link
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+  });
+});
 
   // Form submission handling
   const form = document.getElementById("bookingForm")

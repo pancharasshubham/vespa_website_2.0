@@ -37,6 +37,18 @@ header h1 {
   font-size: 1.5rem;
 }
 
+/* .nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #333;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+} */
+
 nav ul {
   display: flex;
   list-style: none;
@@ -273,11 +285,8 @@ footer {
   cursor: pointer;
 }
 
-/* Hide Menu on Mobile */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+.nav-links.active{
+  display: flex;
 }
 
 /* Responsive styles */
@@ -288,10 +297,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hamburger{
-    display: block;
-  }
-  
   
   .hero {
       text-align: center;
@@ -359,6 +364,8 @@ footer {
   }
   .menu-toggle {
     display: block;
+    font-size: 24px;
+    cursor: pointer;
   }
 
   nav ul {
