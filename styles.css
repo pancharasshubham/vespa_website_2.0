@@ -401,6 +401,20 @@ footer h5{
       font-size: 0.9rem;
   }
 
+  .footer-content {
+    flex-direction: column;
+    display: flex;
+    align-items:  center;
+  }
+
+
+  .footer-info h3, .footer-info p{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+
   #btn button {
       font-size: 0.9rem;
       padding: 8px 16px;
