@@ -378,17 +378,19 @@ footer h5{
   .footer-content {
     flex-direction: column;
     display: flex;
-    align-items:  center;
+    align-items: center;
   }
 
   .footer-info h3, .footer-info p{
     align-items: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
   .footer-copyright {
     margin-top: 1rem;
+    text-align: center;
   }
 }
 
@@ -404,9 +406,8 @@ footer h5{
   .footer-content {
     flex-direction: column;
     display: flex;
-    align-items:  center;
+    align-items: center;
   }
-
 
   .footer-info h3, .footer-info p{
     align-items: center;
