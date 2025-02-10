@@ -37,7 +37,7 @@ navItems.forEach(link => {
    const formData = new FormData(form);
 
    // Replace with your deployed Google Apps Script URL
-   const scriptURL = "https://script.google.com/macros/s/AKfycbyvGCUlao70LM5-8pFKh0wZqSnOC9JfMnEfIufdGsJnDTfJNjdfDLvzscIha8AhFGfD/exec";
+   const scriptURL = "https://script.google.com/macros/s/AKfycbyCRk-xoeQtDJ_WDPcp479M3axlM4GFqofJQawRnOOPbgcChimU9hsMqEpiW3qxm_UY/exec";
 
    try {
      const response = await fetch(scriptURL, {
