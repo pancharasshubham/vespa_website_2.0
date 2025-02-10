@@ -47,7 +47,6 @@ navItems.forEach(link => {
     // Reset the form
     form.reset()
 
-
   })
 })
 
