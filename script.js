@@ -30,32 +30,25 @@ navItems.forEach(link => {
  const form = document.getElementById("bookingForm");
 
  //listen for form submission
- form.addEventListener("submit", async (e) => {
+ form.addEventListener("submit", function (e) {
    e.preventDefault(); // Prevent default form submission
 
    // Create FormData object to capture input values
-   const formData = new FormData(form);
+   let formData = new FormData(form);
 
-   // Replace with your deployed Google Apps Script URL
-   const scriptURL = "https://script.google.com/macros/s/AKfycbyCRk-xoeQtDJ_WDPcp479M3axlM4GFqofJQawRnOOPbgcChimU9hsMqEpiW3qxm_UY/exec";
-
-   try {
-     const response = await fetch(scriptURL, {
-       method: "POST",
-       body: formData,
-     });
-
-     const result = await response.text();
-
-     if (result === "Success") {
-       alert("Thank you for your test drive request. We will contact you soon!");
-       form.reset();
-     } else {
-       alert("Form submission failed. Please try again.");
-     }
-   } catch (error) {
-     console.error("Error submitting form:", error);
-     alert("Network error. Please try again.");
-   }
- });
+  // Send data using fetch() to Google Apps Script
+  fetch("https://script.google.com/macros/s/AKfycbyCRk-xoeQtDJ_WDPcp479M3axlM4GFqofJQawRnOOPbgcChimU9hsMqEpiW3qxm_UY/exec", {
+    method: "POST",
+    body: formData,
+  })
+    .then(response => response.text()) // Convert response to text
+    .then(data => {
+      alert("Form submitted successfully! ✅");
+      form.reset(); // Clear the form
+    })
+    .catch(error => {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again later. ❌");
+    });
+});
 });
