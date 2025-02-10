@@ -26,27 +26,36 @@ navItems.forEach(link => {
   });
 });
 
-  // Form submission handling
-  const form = document.getElementById("bookingForm")
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
+ // Select the form
+ const form = document.getElementById("bookingForm");
 
-    // Get form values
-    const name = document.getElementById("name").value
-    const email = document.getElementById("email").value
-    const phone = document.getElementById("phone").value
-    const model = document.getElementById("model").value
-    const message = document.getElementById("message").value
+ //listen for form submission
+ form.addEventListener("submit", async (e) => {
+   e.preventDefault(); // Prevent default form submission
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", { name, email, phone, model, message })
+   // Create FormData object to capture input values
+   const formData = new FormData(form);
 
-    // Show a success message
-    alert("Thank you for your test drive request. We will contact you soon to confirm your appointment!")
+   // Replace with your deployed Google Apps Script URL
+   const scriptURL = "https://script.google.com/macros/s/AKfycbyvGCUlao70LM5-8pFKh0wZqSnOC9JfMnEfIufdGsJnDTfJNjdfDLvzscIha8AhFGfD/exec";
 
-    // Reset the form
-    form.reset()
+   try {
+     const response = await fetch(scriptURL, {
+       method: "POST",
+       body: formData,
+     });
 
-  })
-})
+     const result = await response.text();
 
+     if (result === "Success") {
+       alert("Thank you for your test drive request. We will contact you soon!");
+       form.reset();
+     } else {
+       alert("Form submission failed. Please try again.");
+     }
+   } catch (error) {
+     console.error("Error submitting form:", error);
+     alert("Network error. Please try again.");
+   }
+ });
+});
