@@ -34,17 +34,29 @@ navItems.forEach(link => {
    e.preventDefault(); // Prevent default form submission
 
    // Create FormData object to capture input values
-   let formData = new FormData(form);
+   let formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    model: document.getElementById("model").value,
+    message: document.getElementById("message").value
+  };
 
   // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbzDjk1b3tCAOQuh0Il61aYEmxJ_NwOWN5Gg4kW4VczD9JlzK9QhhTI_biO8RQUvDJWN/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbw9BskFDXo5sa6rLyKsM6eUL244jc-pcw45G6ScduuB80bwoofyG-jwOsMqfYIzON4P/exec", {
     method: "POST",
-    body: formData,
+    headers: { "Content-Type": "application/json" }, // JSON format
+    body: JSON.stringify(formData)
   })
-    .then(response => response.text()) // Convert response to text
+    .then(response => response.text())
     .then(data => {
-      alert("Form submitted successfully! ✅");
-      form.reset(); // Clear the form
+      console.log("Response from server:", data);
+      if (data.trim() === "Success") {
+        alert("Form submitted successfully! ✅");
+        form.reset(); // clear the form
+      } else {
+        alert("Something went wrong ❌: " + data);
+      }
     })
     .catch(error => {
       console.error("Error submitting form:", error);
