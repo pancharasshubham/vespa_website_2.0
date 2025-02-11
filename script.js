@@ -37,7 +37,7 @@ navItems.forEach(link => {
    let formData = new FormData(form);
 
   // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbyAUb3M_f5FF_iB7GqeS3_SqxFseL9FVEbJqWocrouqd9tJlnSVRrJfoISATh0msRVw/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwCq3Ql-EXEEewMG0YU0HgDdSH2neWBn9zqUli8KSb8Js4ZCnhVxF0cDYckWjRhmcFI/exec", {
     method: "POST",
     body: formData,
   })
