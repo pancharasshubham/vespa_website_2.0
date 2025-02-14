@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
    let formData = new FormData(form);
    let jsonData = Object.fromEntries(formData.entries()); // Convert FormData to JSON object
  
-   alert("Sending data: " + JSON.stringify(jsonData)); // Debugging alert
+   //alert("Sending data: " + JSON.stringify(jsonData)); // Debugging alert
 
   // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbynKXvl0hEbghh46i_RCj9aNtgotBMuhR3xcwtpa8FF5USL0NubHlxAv65E8AWsjgV9HQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxbCy1IwY_vlHnFfCWLjSQgMBpdIXrTCVeefURNsfQ-dldfd3M4W3He6-LGKP0fFZpHLA/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" }, // JSON format
     body: JSON.stringify(jsonData),
