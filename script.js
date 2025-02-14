@@ -18,19 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
   });
-
+ 
 // Close menu when clicking a link
-navItems.forEach(link => {
-  link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
+  navItems.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    }); 
   });
-});
 
  // Select the form
- const form = document.getElementById("bookingForm");
+  const form = document.getElementById("bookingForm");
 
  //listen for form submission
- form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", function (e) {
    e.preventDefault(); // Prevent default form submission
 
    // Create FormData object to capture input values
@@ -42,11 +42,17 @@ navItems.forEach(link => {
     message: document.getElementById("message").value
   };
 
+  // Convert FormData to JSON
+  let jsonData = {};
+  formData.forEach((value, key) => {
+    jsonData[key] = value;
+  });
+
   // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbw9BskFDXo5sa6rLyKsM6eUL244jc-pcw45G6ScduuB80bwoofyG-jwOsMqfYIzON4P/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbynKXvl0hEbghh46i_RCj9aNtgotBMuhR3xcwtpa8FF5USL0NubHlxAv65E8AWsjgV9HQ/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" }, // JSON format
-    body: JSON.stringify(formData)
+    body: JSON.stringify(jsonData),
   })
     .then(response => response.text())
     .then(data => {
