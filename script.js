@@ -32,21 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
  //listen for form submission
   form.addEventListener("submit", function (e) {
    e.preventDefault(); // Prevent default form submission
+   alert("Submitting form..."); //Debugging alert
 
-   // Create FormData object to capture input values
-   let formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    model: document.getElementById("model").value,
-    message: document.getElementById("message").value
-  };
-
-  // Convert FormData to JSON
-  let jsonData = {};
-  formData.forEach((value, key) => {
-    jsonData[key] = value;
-  });
+   // Capture form values using FormData
+   let formData = new FormData(form);
+   let jsonData = Object.fromEntries(formData.entries()); // Convert FormData to JSON object
+ 
+   alert("Sending data: " + JSON.stringify(jsonData)); // Debugging alert
 
   // Send data using fetch() to Google Apps Script
   fetch("https://script.google.com/macros/s/AKfycbynKXvl0hEbghh46i_RCj9aNtgotBMuhR3xcwtpa8FF5USL0NubHlxAv65E8AWsjgV9HQ/exec", {
@@ -56,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
     .then(response => response.text())
     .then(data => {
+      alert("Response: " + data); // Debugging alert
       console.log("Response from server:", data);
       if (data.trim() === "Success") {
         alert("Form submitted successfully! ✅");
