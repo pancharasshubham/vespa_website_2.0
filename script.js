@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let queryString = new URLSearchParams(formData).toString();
 
     // Google Form Submit URL (Replace YOUR_FORM_ID)
-    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfHax2b0lhxDf53_O0_0rzSDd6LJNuQxW3n61KwrBq97zBHvQ/viewform?usp=dialog";
+    let googleFormURL = "https://docs.google.com/forms/d/1STni4B7FSLVgJBAhLxhwABE-eUv2xrKUD6Ey3uh98PQ/formResponse";
 
     // Submit form data using fetch()
     fetch(googleFormURL, {
