@@ -26,43 +26,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }); 
   });
 
-  /* script is being removed
- // Select the form
-  const form = document.getElementById("bookingForm");
 
- //listen for form submission
-  form.addEventListener("submit", function (e) {
-   e.preventDefault(); // Prevent default form submission
-   alert("Submitting form..."); //Debugging alert
+  // submitting form with google_form
+  document.getElementById("customGoogleForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form from redirecting
 
-   // Capture form values using FormData
-   let formData = new FormData(form);
-   let jsonData = Object.fromEntries(formData.entries()); // Convert FormData to JSON object
- 
-   //alert("Sending data: " + JSON.stringify(jsonData)); // Debugging alert
+    // Create FormData object from form
+    let formData = new FormData(this);
 
-  // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbyRzpHkkE9q1akb71lpjQ8S3tAfv5wDx47sc6s16GD2IxQFiyTf-gFPrScsKTNc_PLy2Q/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" }, // JSON format
-    body: JSON.stringify(jsonData),
-  })
-    .then(response => response.text())
-    .then(data => {
-      alert("Response: " + data); // Debugging alert
-      console.log("Response from server:", data);
-      if (data.trim() === "Success") {
-        alert("Form submitted successfully! ✅");
-        form.reset(); // clear the form
-      } else {
-        alert("Something went wrong ❌: " + data);
-      }
+    // Convert FormData to URL-encoded string
+    let queryString = new URLSearchParams(formData).toString();
+
+    // Google Form Submit URL (Replace YOUR_FORM_ID)
+    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfHax2b0lhxDf53_O0_0rzSDd6LJNuQxW3n61KwrBq97zBHvQ/viewform?usp=dialog";
+
+    // Submit form data using fetch()
+    fetch(googleFormURL, {
+      method: "POST",
+      body: queryString,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" }
     })
-    .catch(error => {
-      console.error("Error submitting form:", error);
-      alert("Something went wrong. Please try again later. ❌");
-    });
-});
-*/
-
+      .then(() => {
+        document.getElementById("successMessage").style.display = "block"; // Show success message
+        document.getElementById("customGoogleForm").reset(); // Reset form
+      })
+      .catch(error => console.error("Error submitting form:", error));
+  });
 });
