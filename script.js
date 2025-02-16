@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }); 
   });
 
+  /* script is being removed
  // Select the form
   const form = document.getElementById("bookingForm");
 
@@ -62,4 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Something went wrong. Please try again later. ❌");
     });
 });
+*/
+
 });
