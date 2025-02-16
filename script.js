@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
    //alert("Sending data: " + JSON.stringify(jsonData)); // Debugging alert
 
   // Send data using fetch() to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbyJMy8cVek-ZoTZhTZCAnL3RzKbXnUr8_KrBNWpmtrta66ZXTHqtJZuVXvXXtlXDR7eJQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyRzpHkkE9q1akb71lpjQ8S3tAfv5wDx47sc6s16GD2IxQFiyTf-gFPrScsKTNc_PLy2Q/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" }, // JSON format
     body: JSON.stringify(jsonData),
