@@ -161,7 +161,7 @@
         <section id="contact" class="contact-form">
             <div class="container">
                 <h2>Book a Test Drive</h2>
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSfHax2b0lhxDf53_O0_0rzSDd6LJNuQxW3n61KwrBq97zBHvQ/formResponse" method="post" target="hidden_iframe">
+                <form id="customForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfHax2b0lhxDf53_O0_0rzSDd6LJNuQxW3n61KwrBq97zBHvQ/formResponse" method="post" target="hidden_iframe">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="entry.2005620554" required>
@@ -177,12 +177,12 @@
                     <div class="form-group">
                         <label for="model">Preferred Model:</label>
                         <select id="model" name="entry.1978593902" required>
-                            <option value="model">Select a model</option>
-                            <option value="SXL 125">SXL 125 / SXL 150</option>
-                            <option value="VXL 125">VXL 125 / VXL 150</option>
-                            <option value="ZX 125">ZX 125</option>
-                            <option value="Vespa Dual">Vespa Dual</option>
-                            <option value="Racing Sixites">Racing Sixites</option>
+                            <option value="vehiacle_model">Select a model</option>
+                            <option name= "entry.1978593902" value="SXL 125">SXL 125 / SXL 150</option>
+                            <option name= "entry.1978593902" value="VXL 125">VXL 125 / VXL 150</option>
+                            <option name= "entry.1978593902" value="ZX 125">ZX 125</option>
+                            <option name= "entry.1978593902" value="Vespa Dual">Vespa Dual</option>
+                            <option name= "entry.1978593902" value="Racing Sixites">Racing Sixites</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -197,8 +197,10 @@
                 <!-- Thank You Popup -->
                 <div id="thankYouPopup">
                     <div class="popup-content">
-                        <p>🎉 Thank you for your submission!</p>
-                        <button onclick="closePopup()">OK</button>
+                        <p>Thank you for your submission! Our team will contact you shortly to confirm your appointment. 📅</p>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>  
                     </div>
                 </div>
             </div>
@@ -232,6 +234,7 @@
         </div>
         <h5>Developed by <strong>Shubham</strong></h5>
     </footer>
+
     <script src="script.js" defer></script>
 </body>
 </html>
