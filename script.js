@@ -26,3 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }); 
   });
 });
+
+document.getElementById("customForm").onsubmit = function () {
+  setTimeout(function () {
+      let popup = document.getElementById("thankYouPopup");
+      popup.style.display = "block"; // Show popup
+
+      // Auto-hide popup after 1 minute (60000 ms)
+      setTimeout(function () {
+          popup.style.display = "none"; // Hide popup
+      }, 60000);
+  }, 1000); // Delay to match form submission time
+};
