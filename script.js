@@ -25,31 +25,4 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.remove("active");
     }); 
   });
-
-
-  // submitting form with google_form
-  document.getElementById("customGoogleForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form from redirecting
-
-    // Create FormData object from form
-    let formData = new FormData(this);
-
-    // Convert FormData to URL-encoded string
-    let queryString = new URLSearchParams(formData).toString();
-
-    // Google Form Submit URL (Replace YOUR_FORM_ID)
-    let googleFormURL = "https://docs.google.com/forms/d/1STni4B7FSLVgJBAhLxhwABE-eUv2xrKUD6Ey3uh98PQ/formResponse";
-
-    // Submit form data using fetch()
-    fetch(googleFormURL, {
-      method: "POST",
-      body: queryString,
-      headers: { "Content-Type": "application/x-www-form-urlencoded" }
-    })
-      .then(() => {
-        document.getElementById("successMessage").style.display = "block"; // Show success message
-        document.getElementById("customGoogleForm").reset(); // Reset form
-      })
-      .catch(error => console.error("Error submitting form:", error));
-  });
 });
