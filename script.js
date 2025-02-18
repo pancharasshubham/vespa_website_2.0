@@ -27,6 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+  // form fetch() method
+  document.getElementById("customForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent page reload
+
+     // Create FormData object
+     let formData = new FormData(this);
+
+     // Submit form using fetch
+     fetch("https://docs.google.com/forms/d/e/1FAIpQLSfHax2b0lhxDf53_O0_0rzSDd6LJNuQxW3n61KwrBq97zBHvQ/formResponse", {
+         method: "POST",
+         body: formData,
+         mode: "no-cors" // Prevent CORS issues
+    }).then(() => {
+         showPopup(); // Show custom popup on successful submission
+         this.reset(); // Clear the form
+     }).catch(error => {
+         console.error("Submission failed:", error);
+     });
+    });
+
 // thank you popup
 document.getElementById("customForm").onsubmit = function (event) {
   event.preventDefault(); // Prevent default submission

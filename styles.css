@@ -262,7 +262,7 @@ button:hover {
   font-size: 16px;
   max-width: 350px;
   font-weight: 500;
-  opacity: 0;
+  opacity: 0; 
   z-index: 1000;
 }
 
