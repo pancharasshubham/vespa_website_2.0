@@ -40,40 +40,51 @@ document.addEventListener("DOMContentLoaded", () => {
          body: formData,
          mode: "no-cors" // Prevent CORS issues
     }).then(() => {
-         showPopup(); // Show custom popup on successful submission
+         Popup(); // Show custom popup on successful submission
          this.reset(); // Clear the form
      }).catch(error => {
          console.error("Submission failed:", error);
      });
     });
 
-// thank you popup
-document.getElementById("customForm").onsubmit = function (event) {
-  event.preventDefault(); // Prevent default submission
-
-  // Submit form using the hidden iframe
-  this.submit();
-
-  // Show Thank You popup
-  let popup = document.getElementById("thankYouPopup");
-  popup.style.display = "block"; 
-  popup.style.opacity = "1";
-
-  // Start progress bar animation
-  let progressBar = document.querySelector(".progress");
-  progressBar.style.width = "100%";
+// Function to Show Popup
+function showPopup() {
+  let popup = document.getElementById("popup");
+  popup.classList.remove("hidden");
 
   // Hide popup after 5 seconds
   setTimeout(() => {
-    popup.style.opacity = "0"; // Smooth fade-out
-    setTimeout(() => {
-        popup.style.display = "none"; 
-    }, 500); // Wait for fade-out animation
-}, 5000); // 5 seconds display time
+      popup.classList.add("hidden");
+  }, 5000);
+}
 
-  // Reset form after a short delay
-  setTimeout(() => {
-      document.getElementById("customForm").reset();
-  }, 1000);
+// thank you popup
+// document.getElementById("customForm").onsubmit = function (event) {
+//   event.preventDefault(); // Prevent default submission
 
-};    
+//   // Submit form using the hidden iframe
+//   this.submit();
+
+//   // Show Thank You popup
+//   let popup = document.getElementById("thankYouPopup");
+//   popup.style.display = "block"; 
+//   popup.style.opacity = "1";
+
+//   // Start progress bar animation
+//   let progressBar = document.querySelector(".progress");
+//   progressBar.style.width = "100%";
+
+//   // Hide popup after 5 seconds
+//   setTimeout(() => {
+//     popup.style.opacity = "0"; // Smooth fade-out
+//     setTimeout(() => {
+//         popup.style.display = "none"; 
+//     }, 500); // Wait for fade-out animation
+// }, 5000); // 5 seconds display time
+
+//   // Reset form after a short delay
+//   setTimeout(() => {
+//       document.getElementById("customForm").reset();
+//   }, 1000);
+
+// };    
