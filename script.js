@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
          body: formData,
          mode: "no-cors" // Prevent CORS issues
     }).then(() => {
-         Popup(); // Show custom popup on successful submission
+         showPopup(); // Show custom popup on successful submission
          this.reset(); // Clear the form
      }).catch(error => {
          console.error("Submission failed:", error);
