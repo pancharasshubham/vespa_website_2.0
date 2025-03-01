@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
          mode: "no-cors" // Prevent CORS issues
     }).then(() => {
          showPopup(); // Show custom popup on successful submission  
-            
+
          this.reset(); // Clear the form
      }).catch(error => {
          console.error("Submission failed:", error);
      });
     });
 
-// Function to Show Popup
+// Function to Show Popup       
 function showPopup() {
   let popup = document.getElementById("popup");
   popup.classList.remove("hidden");
